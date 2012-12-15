@@ -19,10 +19,11 @@ public class MinLoader extends LoadFunc implements LoadMetadata
 	/* Basic LoadFunc implementation */
 	
 	/** 
-	 * Returns a {@link org.apache.hadoop.mapreduce.lib.input.TextInputFormat TextInputFormat} object.  This is usually suitable for line-based files.
-	 * If your application needs more than a single line of context, you'll need to implement
-	 * a {@link org.apache.hadoop.mapreduce.RecordReader RecordReader} that knows how to break up files, and an {@link org.apache.hadoop.mapreduce.InputFormat InputFormat} that returns that
-	 * {@link org.apache.hadoop.mapreduce.RecordReader RecordReader}.
+	 * Returns a {@link org.apache.hadoop.mapreduce.lib.input.TextInputFormat TextInputFormat} object.  
+	 * This is usually suitable for line-based files. If your application needs more than a single line 
+	 * of context, you'll need to implement a {@link org.apache.hadoop.mapreduce.RecordReader RecordReader} 
+	 * that knows how to break up files, and an {@link org.apache.hadoop.mapreduce.InputFormat InputFormat} 
+	 * that returns that {@link org.apache.hadoop.mapreduce.RecordReader RecordReader}.
 	 */
 	@Override
 	public InputFormat getInputFormat() {
