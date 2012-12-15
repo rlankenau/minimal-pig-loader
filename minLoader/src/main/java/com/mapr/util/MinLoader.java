@@ -26,7 +26,7 @@ public class MinLoader extends LoadFunc implements LoadMetadata
 		return new org.apache.hadoop.mapreduce.lib.input.TextInputFormat();
 	}
 
-    @Override
+	@Override
 	public void prepareToRead(org.apache.hadoop.mapreduce.RecordReader reader, org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.PigSplit split)
 	{
 		this.reader = reader;
@@ -42,16 +42,16 @@ public class MinLoader extends LoadFunc implements LoadMetadata
 
 	@Override
 	public Tuple getNext() throws IOException {
-     	Tuple output = TupleFactory.getInstance().newTuple(1);
+		Tuple output = TupleFactory.getInstance().newTuple(1);
 
 		try {
 			if(this.reader.nextKeyValue()) {
-            	org.apache.hadoop.io.Text rawText = (org.apache.hadoop.io.Text)reader.getCurrentValue();
+				org.apache.hadoop.io.Text rawText = (org.apache.hadoop.io.Text)reader.getCurrentValue();
 				output.set(0, rawText.toString());	
 				return output;
 			}
 		} catch (Exception e) {
-         	/* No handling on the exception, just ignore the record */
+			/* No handling on the exception, just ignore the record */
 		}
     	return null;
 	}
@@ -62,7 +62,7 @@ public class MinLoader extends LoadFunc implements LoadMetadata
 	 * This loader is intended for record-based files, and does not support partitions.
 	 * @return Always returns null.
 	 */
-    public String[] getPartitionKeys(String location, org.apache.hadoop.mapreduce.Job job) throws IOException
+	public String[] getPartitionKeys(String location, org.apache.hadoop.mapreduce.Job job) throws IOException
 	{
 		return null;	
 	}
@@ -70,7 +70,7 @@ public class MinLoader extends LoadFunc implements LoadMetadata
 	/**
 	 * This loader is intended for record-based files, and does not support partitions.
 	 */
-    public void setPartitionFilter(Expression partitionFilter) throws IOException
+	public void setPartitionFilter(Expression partitionFilter) throws IOException
 	{
 	 	return;   
 	}
